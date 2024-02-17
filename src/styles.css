@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --light-pink: #e7717d;
+  --gradient-light-pink: #e3a774;
+  --silver: #c2c9cf;
+  --rosy-brown: #c2b9b0;
+  --dark-taupe: #7e6859;
+  --light-green: #afd274;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}

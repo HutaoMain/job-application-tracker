@@ -1,0 +1,9 @@
+.navbar {
+  background: linear-gradient(
+    to right,
+    var(--gradient-light-pink),
+    var(--light-pink)
+  );
+  height: 50px;
+  width: 100vw;
+}
