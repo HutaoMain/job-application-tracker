@@ -1,1 +1,25 @@
-<p>job-board works!</p>
+<div class="boards" cdkDropListGroup>
+  <div *ngFor="let board of boardList" class="board-container">
+    <div class="board-header">
+      <section class="board-header-title">
+        <span>icon here</span>
+        <h3>{{ board.boardName }}</h3>
+        <span>icon 3 dots here</span>
+      </section>
+      <button class="board-btn">plus sign icon here</button>
+    </div>
+
+    <div
+      class="board-body"
+      cdkDropList
+      [cdkDropListData]="board.jobList"
+      (cdkDropListDropped)="onDrop($event)"
+    >
+      <app-job-card
+        *ngFor="let job of board.jobList"
+        [job]="job"
+        cdkDrag
+      ></app-job-card>
+    </div>
+  </div>
+</div>

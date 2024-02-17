@@ -1,0 +1,36 @@
+.boards {
+  display: flex;
+  align-items: center;
+}
+
+.board-container {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.board-header {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.board-header-title {
+  display: flex;
+  align-items: center;
+}
+
+.board-btn {
+  padding: 15px;
+  width: 100%;
+}
+
+.board-body.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

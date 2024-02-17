@@ -1,1 +1,10 @@
-<p>job-card works!</p>
+<div class="card-container" cdkDrag>
+  <div class="card">
+    <h4>{{ job.jobName }}</h4>
+    <section class="company-section">
+      <span>icon here</span>
+      <span>{{ job.companyName }}</span>
+    </section>
+    <span>{{ job.createdAt | date : "short" }}</span>
+  </div>
+</div>
