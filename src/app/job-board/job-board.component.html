@@ -1,4 +1,4 @@
-<div class="boards" cdkDropListGroup>
+<!-- <div class="boards" cdkDropListGroup>
   <div *ngFor="let board of boardList" class="board-container">
     <div class="board-header">
       <section class="board-header-title">
@@ -20,6 +20,198 @@
         [job]="job"
         cdkDrag
       ></app-job-card>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="example-container">
+  <h2>TODO LIST</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todoList"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (item of todo; track item) {
+      <div class="example-box" cdkDrag>{{item}}</div>
+    }
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>APPLIED</h2>
+
+  <div
+    cdkDropList
+    #appliedList="cdkDropList"
+    [cdkDropListData]="appliedList"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (item of done; track item) {
+      <div class="example-box" cdkDrag>{{item}}</div>
+    }
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>INTERVIEW</h2>
+
+  <div
+    cdkDropList
+    #interviewList="cdkDropList"
+    [cdkDropListData]="interviewList"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (item of done; track item) {
+      <div class="example-box" cdkDrag>{{item}}</div>
+    }
+  </div>
+</div>
+
+
+<div class="example-container">
+  <h2>OFFER</h2>
+
+  <div
+    cdkDropList
+    #offerList="cdkDropList"
+    [cdkDropListData]="offerList"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (item of done; track item) {
+      <div class="example-box" cdkDrag>{{item}}</div>
+    }
+  </div>
+</div>
+
+
+
+<div class="example-container">
+  <h2>REJECTED</h2>
+
+  <div
+    cdkDropList
+    #rejectedList="cdkDropList"
+    [cdkDropListData]="rejectedList"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    @for (item of done; track item) {
+      <div class="example-box" cdkDrag>{{item}}</div>
+    }
+  </div>
+</div> -->
+
+<!-- HTML template -->
+
+<div cdkDropListGroup>
+  <div class="example-container">
+    <h2>WISHLIST</h2>
+
+    <div
+      cdkDropList
+      id="wishlist"
+      #wishList="cdkDropList"
+      [cdkDropListData]="wishlist"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of wishlist" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <p>{{ item.jobName }}</p>
+        <p>{{ item.companyName }}</p>
+        <p>{{ item.jobDescription }}</p>
+        <p>{{ item.askingSalary }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>APPLIED</h2>
+
+    <div
+      cdkDropList
+      id="applied"
+      #appliedList="cdkDropList"
+      [cdkDropListData]="applied"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of applied" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <p>{{ item.jobName }}</p>
+        <p>{{ item.companyName }}</p>
+        <p>{{ item.jobDescription }}</p>
+        <p>{{ item.askingSalary }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>INTERVIEW</h2>
+
+    <div
+      cdkDropList
+      id="interview"
+      #interviewList="cdkDropList"
+      [cdkDropListData]="interview"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of interview" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <p>{{ item.jobName }}</p>
+        <p>{{ item.companyName }}</p>
+        <p>{{ item.jobDescription }}</p>
+        <p>{{ item.askingSalary }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>OFFER</h2>
+
+    <div
+      cdkDropList
+      id="offer"
+      #offerList="cdkDropList"
+      [cdkDropListData]="offer"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of offer" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <p>{{ item.jobName }}</p>
+        <p>{{ item.companyName }}</p>
+        <p>{{ item.jobDescription }}</p>
+        <p>{{ item.askingSalary }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>REJECTED</h2>
+
+    <div
+      cdkDropList
+      id="rejected"
+      #rejectedList="cdkDropList"
+      [cdkDropListData]="rejected"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of rejected" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        <p>{{ item.jobName }}</p>
+        <p>{{ item.companyName }}</p>
+        <p>{{ item.jobDescription }}</p>
+        <p>{{ item.askingSalary }}</p>
+      </div>
     </div>
   </div>
 </div>

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardInterface } from '../interface/board-interface';
-import { BoardService } from '../service/board.service';
 import { CommonModule } from '@angular/common';
 import { JobCardComponent } from '../job-card/job-card.component';
 import {
@@ -8,8 +6,11 @@ import {
   CdkDragDrop,
   CdkDropList,
   CdkDropListGroup,
+  transferArrayItem,
+  moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { JobInterface } from '../interface/job-interface';
+import { JobService } from '../service/job.service';
 
 @Component({
   selector: 'app-job-board',
@@ -25,36 +26,61 @@ import { JobInterface } from '../interface/job-interface';
   styleUrl: './job-board.component.css',
 })
 export class JobBoardComponent implements OnInit {
-  boardList: BoardInterface[] = [];
+  email: string = 'alimohamedalcantara@gmail.com';
 
-  constructor(private boardService: BoardService) {}
+  wishlist: JobInterface[] = [];
+  applied: JobInterface[] = [];
+  interview: JobInterface[] = [];
+  offer: JobInterface[] = [];
+  rejected: JobInterface[] = [];
+
+  constructor(private jobService: JobService) {}
 
   ngOnInit(): void {
-    this.loadBoardList();
+    this.jobService
+      .getJobListByStatusAndEmail('wishlist', this.email)
+      .subscribe((data) => (this.wishlist = data));
+    this.jobService
+      .getJobListByStatusAndEmail('applied', this.email)
+      .subscribe((data) => (this.applied = data));
+    this.jobService
+      .getJobListByStatusAndEmail('interview', this.email)
+      .subscribe((data) => (this.interview = data));
+    this.jobService
+      .getJobListByStatusAndEmail('offer', this.email)
+      .subscribe((data) => (this.offer = data));
+    this.jobService
+      .getJobListByStatusAndEmail('rejected', this.email)
+      .subscribe((data) => (this.rejected = data));
   }
 
-  loadBoardList(): void {
-    this.boardService.getAllBoards().subscribe((boardList) => {
-      console.log(boardList);
-      this.boardList = boardList;
-    });
-  }
+  drop(event: CdkDragDrop<JobInterface[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+      console.log('move item');
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
 
-  onDrop(event: CdkDragDrop<JobInterface[]>) {
-    console.log('event', event);
-    const jobId = event.item.dropContainer.data[0]?.id;
-    console.log('jobId', jobId);
-    const targetBoardId = this.boardList[event.currentIndex].id;
+      console.log('transfer item');
 
-    console.log('targetBoardId', targetBoardId);
-    // const targetBoard = this.boardList.find(
-    //   (board) => board.id === targetBoardId
-    // );
-    // console.log('targetBoardId', targetBoard);
-    // TODO: the problem here is that isPointerOverContainer is false meaning even tho the pointer is in the other container, it is not detecting maybe because my html is dynamically listing the boards
-    // TODO: think if we will make the boards static
-    // this.boardService
-    //   .moveJobCardByJobIdAndTargetBoardId(jobId, targetBoardId)
-    //   .subscribe((res) => console.log(res));
+      const jobId = event.container.data[0]?.id;
+      let targetStatus = event.container.id;
+
+      console.log('jobid', jobId);
+      console.log('targetStatus', targetStatus);
+
+      this.jobService
+        .patchJobToMove(jobId, targetStatus)
+        .subscribe((res) => console.log(res));
+    }
   }
 }
