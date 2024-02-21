@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { ViewJobComponent } from './component/view-job/view-job.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     HomeComponent,
     JobCardComponent,
     JobBoardComponent,
+    ViewJobComponent,
   ],
   imports: [
     HttpClientModule,

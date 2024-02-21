@@ -1,0 +1,32 @@
+/* view-job.component.css */
+
+.view-job-container {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.company-name {
+  font-weight: bold;
+}
+
+.job-description {
+  margin-top: 10px;
+}
+
+.asking-salary {
+  margin-top: 5px;
+}
+
+.status {
+  margin-top: 5px;
+}
+
+.created-at {
+  margin-top: 10px;
+  color: #888888; /* Gray color for created at */
+}
+
+/* Add any additional styling as needed */

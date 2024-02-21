@@ -21,32 +21,16 @@ export class JobBoardComponent implements OnInit {
   offer: JobInterface[] = [];
   rejected: JobInterface[] = [];
 
-  // add job data
-
-  jobName: string = '';
   email: string = 'alimohamedalcantara@gmail.com';
-  companyName: string = '';
-  jobDescription: string = '';
-  askingSalary: number = 0;
-  status: string = 'wishlist';
 
   constructor(private jobService: JobService, private dialog: MatDialog) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddJobComponent, {
       width: '320px',
-      data: {
-        jobName: this.jobName,
-        email: this.email,
-        companyName: this.companyName,
-        jobDescription: this.jobDescription,
-        askingSalary: this.askingSalary,
-        status: this.status,
-      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      // this.animal = result;
       console.log(result);
     });
   }

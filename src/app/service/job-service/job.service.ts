@@ -27,4 +27,15 @@ export class JobService {
       .patch(apiUrl, {})
       .pipe(map((response: any) => response as JobInterface));
   }
+
+  postJob(jobItems: JobInterface): Observable<JobInterface> {
+    return this.http.post<JobInterface>(`${this.url}/create`, {
+      jobName: jobItems.jobName,
+      email: jobItems.email,
+      companyName: jobItems.companyName,
+      jobDescription: jobItems.jobDescription,
+      askingSalary: jobItems.askingSalary,
+      status: jobItems.status,
+    });
+  }
 }
