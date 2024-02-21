@@ -7,16 +7,22 @@
 .jira-container {
   width: 280px;
   margin-right: 20px;
-  min-height: calc(100vh - 130px);
+  height: calc(100vh - 130px);
   background-color: #b6b3b3ff; /* Jira's background color */
   border-radius: 5px;
   padding: 10px;
 }
 
 .jira-list {
-  overflow: hidden;
-  margin-top: 10px;
+  height: 80%;
+  overflow-y: scroll;
   padding: 10px;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .jira-list.cdk-drop-list-dragging {
