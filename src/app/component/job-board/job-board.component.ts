@@ -1,40 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { JobCardComponent } from '../job-card/job-card.component';
+import { JobInterface } from '../../interface/job-interface';
+import { MatDialog } from '@angular/material/dialog';
+import { JobService } from '../../service/job-service/job.service';
+import { AddJobComponent } from '../add-job/add-job.component';
 import {
-  CdkDrag,
   CdkDragDrop,
-  CdkDropList,
-  CdkDropListGroup,
   transferArrayItem,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
-import { JobInterface } from '../interface/job-interface';
-import { JobService } from '../service/job.service';
 
 @Component({
   selector: 'app-job-board',
-  standalone: true,
-  imports: [
-    CommonModule,
-    JobCardComponent,
-    CdkDropListGroup,
-    CdkDropList,
-    CdkDrag,
-  ],
   templateUrl: './job-board.component.html',
   styleUrl: './job-board.component.css',
 })
 export class JobBoardComponent implements OnInit {
-  email: string = 'alimohamedalcantara@gmail.com';
-
   wishlist: JobInterface[] = [];
   applied: JobInterface[] = [];
   interview: JobInterface[] = [];
   offer: JobInterface[] = [];
   rejected: JobInterface[] = [];
 
-  constructor(private jobService: JobService) {}
+  // add job data
+
+  jobName: string = '';
+  email: string = 'alimohamedalcantara@gmail.com';
+  companyName: string = '';
+  jobDescription: string = '';
+  askingSalary: number = 0;
+  status: string = 'wishlist';
+
+  constructor(private jobService: JobService, private dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddJobComponent, {
+      width: '320px',
+      data: {
+        jobName: this.jobName,
+        email: this.email,
+        companyName: this.companyName,
+        jobDescription: this.jobDescription,
+        askingSalary: this.askingSalary,
+        status: this.status,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      // this.animal = result;
+      console.log(result);
+    });
+  }
 
   ngOnInit(): void {
     this.jobService

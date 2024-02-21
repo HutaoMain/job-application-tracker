@@ -1,0 +1,71 @@
+.addjob-btn {
+  padding: 10px;
+  width: 200px;
+  margin-left: 20px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--light-green);
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.jira-job-board {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.jira-container {
+  width: 280px;
+  margin-right: 20px;
+  height: calc(100vh - 170px);
+  background-color: var(--silver);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.jira-header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.jira-header span {
+  font-size: 16px;
+}
+
+.jira-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-bottom: 3px solid #000000;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.jira-list {
+  height: 85%;
+  overflow-y: scroll;
+  padding: 10px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.jira-list.cdk-drop-list-dragging {
+  border: 2px dashed var(--light-pink);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

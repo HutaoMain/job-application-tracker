@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { JobInterface } from '../../interface/job-interface';
 import { Observable, map } from 'rxjs';
-import { JobInterface } from '../interface/job-interface';
 
 @Injectable({
   providedIn: 'root',

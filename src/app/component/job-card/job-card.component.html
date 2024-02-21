@@ -1,0 +1,15 @@
+<div class="jira-card">
+  <h4>{{ job.jobName }}</h4>
+  <section class="company-section">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="business"
+    ></mat-icon>
+    <span class="company-name">{{ job.companyName }}</span>
+  </section>
+  <!-- <p>{{ job.jobDescription }}</p> -->
+  <!-- <p>Asking Salary: {{ job.askingSalary }}</p> -->
+  <!-- <p>Created At: {{ job.createdAt | date : "short" }}</p> -->
+  <p class="days-passed">{{ daysPassed() }} days ago</p>
+</div>

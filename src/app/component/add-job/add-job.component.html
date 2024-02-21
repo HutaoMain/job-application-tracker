@@ -1,0 +1,54 @@
+<div class="modal-container">
+  <h2>Add Job</h2>
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    <!-- Job Name -->
+    <mat-form-field appearance="fill" class="modal-input">
+      <mat-label>Job Name</mat-label>
+      <input matInput formControlName="jobName" required />
+    </mat-form-field>
+
+    <!-- Company Name -->
+    <mat-form-field appearance="fill" class="modal-input">
+      <mat-label>Company Name</mat-label>
+      <input matInput formControlName="companyName" required />
+    </mat-form-field>
+
+    <!-- Job Description -->
+    <mat-form-field appearance="fill" class="modal-input">
+      <mat-label>Job Description</mat-label>
+      <textarea matInput formControlName="jobDescription" required></textarea>
+    </mat-form-field>
+
+    <!-- Asking Salary -->
+    <mat-form-field appearance="fill" class="modal-input">
+      <mat-label>Asking Salary</mat-label>
+      <input matInput type="number" formControlName="askingSalary" required />
+    </mat-form-field>
+
+    <!-- Status -->
+    <mat-form-field appearance="fill" class="modal-input">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" required>
+        <mat-option value="wishlist">Wishlist</mat-option>
+        <mat-option value="applied">Applied</mat-option>
+        <mat-option value="interview">Interview</mat-option>
+        <mat-option value="offer">Offer</mat-option>
+        <mat-option value="rejected">Rejected</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button
+        class="modal-btn submit"
+        mat-button
+        type="submit"
+        [disabled]="jobForm.invalid"
+      >
+        Add Job
+      </button>
+      <button class="modal-btn cancel" mat-button (click)="onCloseClick()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

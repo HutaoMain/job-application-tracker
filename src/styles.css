@@ -5,6 +5,9 @@
   --rosy-brown: #c2b9b0;
   --dark-taupe: #7e6859;
   --light-green: #afd274;
+  --red: #c70000;
+  --white: #ffffff;
+  --black: #000000;
 }
 
 html,
@@ -13,4 +16,18 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   overflow: hidden;
+  background-color: #f4f5f7;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button {
+  cursor: pointer;
 }

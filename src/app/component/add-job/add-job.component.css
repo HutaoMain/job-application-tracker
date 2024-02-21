@@ -1,0 +1,41 @@
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.modal-container form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-input {
+  width: 300px !important;
+}
+
+.modal-btn {
+  padding: 10px 0;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+}
+
+.submit {
+  background-color: var(--light-green);
+  color: var(--white);
+}
+
+.cancel {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
