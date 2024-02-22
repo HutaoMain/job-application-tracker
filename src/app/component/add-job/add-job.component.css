@@ -39,3 +39,13 @@
   align-items: center;
   gap: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .modal-input {
+    width: 270px !important;
+  }
+
+  .modal-btn {
+    width: 120px;
+  }
+}

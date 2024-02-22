@@ -1,15 +1,17 @@
-/* view-job.component.css */
-
 .view-job-container {
   max-width: 400px;
   padding: 20px;
   background-color: #ffffff;
   border: 2px solid #ccc;
   border-radius: 8px;
+  position: relative;
 }
 
 .company-name {
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .job-description {
@@ -26,7 +28,17 @@
 
 .created-at {
   margin-top: 10px;
-  color: #888888; /* Gray color for created at */
+  color: #888888;
 }
 
-/* Add any additional styling as needed */
+.close-btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  background-color: transparent;
+}
+
+.close-btn-icon {
+  border: none;
+}

@@ -1,6 +1,21 @@
 <div class="view-job-container">
+  <button (click)="onCloseClick()" class="close-btn">
+    <mat-icon
+      class="close-btn-icon"
+      aria-hidden="false"
+      aria-label="Close Icon"
+      fontIcon="close"
+    ></mat-icon>
+  </button>
   <h2>{{ jobName }}</h2>
-  <p class="company-name">{{ companyName }}</p>
+  <p class="company-name">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Business Icon"
+      fontIcon="business"
+    ></mat-icon
+    >{{ companyName }}
+  </p>
   <p class="job-description">{{ jobDescription }}</p>
   <p class="asking-salary">Asking Salary: {{ askingSalary }}</p>
   <p class="status">Status: {{ status }}</p>

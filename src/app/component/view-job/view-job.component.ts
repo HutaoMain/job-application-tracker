@@ -27,4 +27,8 @@ export class ViewJobComponent {
     this.createdAt = data.createdAt;
     console.log('created At', this.createdAt);
   }
+
+  onCloseClick(): void {
+    this.dialogRef.close();
+  }
 }
