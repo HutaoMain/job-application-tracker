@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { ViewJobComponent } from './component/view-job/view-job.component';
+import { LoginComponent } from './page/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ViewJobComponent } from './component/view-job/view-job.component';
     JobCardComponent,
     JobBoardComponent,
     ViewJobComponent,
+    LoginComponent,
   ],
   imports: [
     HttpClientModule,

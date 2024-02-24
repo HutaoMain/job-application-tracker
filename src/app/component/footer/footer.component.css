@@ -6,4 +6,19 @@
   );
   height: 50px;
   width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-credit {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--white);
+}
+
+.footer-name {
+  font-weight: 500;
 }

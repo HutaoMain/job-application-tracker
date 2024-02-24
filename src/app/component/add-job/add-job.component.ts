@@ -45,7 +45,7 @@ export class AddJobComponent {
 
       this.jobService.postJob(jobItems).subscribe({
         next: (value: JobInterface) => {
-          window.location.reload;
+          window.location.reload();
           console.log(value);
         },
         error: (error: any) => {
